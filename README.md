@@ -1,3 +1,6 @@
 # Scripts Python para interação com Lab
 
-## Script básico de enumeração de usuários e diretórios
+## Script para automatizar testes em API
+* #### Enumeração de EndPoints
+* ##### Enumeração de usuários
+* ##### Ataque de força bruta
