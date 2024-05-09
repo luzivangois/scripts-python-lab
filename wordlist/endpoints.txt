@@ -1,3 +1,8 @@
+auth
+auth/login
+auth/register
+auth/api
+auth/allusers
 api/authentication/loginsql
 admin/
 usuario

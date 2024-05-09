@@ -1,6 +1,4 @@
 import requests
-import json
-
 
 with open("wordlist/users.txt", "r") as arquivo:
     linhas = arquivo.readlines()
@@ -8,8 +6,8 @@ with open("wordlist/users.txt", "r") as arquivo:
     for linha in linhas:
     
         nome_usuario  = linha.strip()
-        payload  = {'login': nome_usuario, 'senha': ''}
-        r = requests.post('http://localhost:8080/usuario/login', json=payload)
+        payload  = {'login': nome_usuario, 'password': ''}
+        r = requests.post('http://localhost:8080/auth/login', json=payload)
         mensagem = r.text
         if (mensagem == "Senha Incorreta!"):
             with open("usuarios_validos.txt", "a") as resultado:

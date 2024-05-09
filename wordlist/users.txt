@@ -1,3 +1,5 @@
+admin
+user
 luzivan
 carlos
 pedro
@@ -9,3 +11,4 @@ lauro
 junior
 jose
 priscila
+juliana
