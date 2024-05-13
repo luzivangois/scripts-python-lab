@@ -1,17 +1,21 @@
 import requests
 
-url = 'http://localhost:8080/'
+# API Java
+# url = 'http://localhost:8080/'
 
-with open("wordlist/endpoints.txt", "r") as arquivo:
-    linhas = arquivo.readlines()
+# API .Net
+url = 'http://localhost:5127/'
 
-    for linha in linhas:
+with open("wordlist/endpoints.txt", "r") as file:
+    lines = file.readlines()
+
+    for line in lines:
     
-        endpoint  = linha.strip()
+        endpoint  = line.strip()
         
         r = requests.get(url+endpoint)
-        retorno = r.status_code
-        codigo_retorno = str(retorno)
-        if (retorno != 404):
-            with open("endpoints_validos.txt", "a") as resultado:
-                resultado.write("\nURL : "+url+endpoint+"\nStatus Code: "+codigo_retorno)
+        response = r.status_code
+        response_code = str(response)
+        if (response != 404):
+            with open("endpoints_validos.txt", "a") as result:
+                result.write("\nURL : "+url+endpoint+"\nStatus Code: "+response_code)
