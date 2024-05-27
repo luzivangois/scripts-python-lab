@@ -1,10 +1,13 @@
 import requests
 
 # API Java
-url = 'http://localhost:8080/'
+# url = 'http://localhost:8080/'
 
 # API .Net
 # url = 'http://localhost:5127/'
+
+# API Python
+url = 'http://localhost:5000/'
 
 with open("wordlist/endpoints.txt", "r") as file:
     lines = file.readlines()

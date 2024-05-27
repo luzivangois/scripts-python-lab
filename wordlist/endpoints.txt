@@ -1,8 +1,14 @@
 auth
+user/login
+user/register
+user/allusers
 auth/login
 auth/register
 auth/api
 auth/allusers
+account
+account/deposit
+account/balance
 api/authentication/loginsql
 admin/
 usuario
